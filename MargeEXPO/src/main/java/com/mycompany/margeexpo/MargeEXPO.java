@@ -47,4 +47,14 @@ public class MargeEXPO {
             array[index++] = value;
         }
     }
+    //Método auxiliar para imprimir la matriz.
+    private static void printlnArray(String message) {
+        StringBuffer arrayStr =  new StringBuffer(message+"[");
+        for (int i = 0; i < array.length; i++) {
+            arrayStr.append(array[i]);
+            if(i < array.length-1){ arrayStr.append(", "); }
+        }
+        arrayStr.append("]");
+        System.out.println(arrayStr);
+    }
 }
