@@ -24,4 +24,27 @@ public class MargeEXPO {
             merge(low, middle, high);
         }// if i==j, la sublista tiene 1 elemento, entonces se considera ordenada
     }
+    private static void merge(int low, int middle, int high) {      
+        int tempArray[] = new int[high-low+1];
+        //Compara miembros en cada sublista en la extrema izquierda;
+        //el elemento más pequeño se "elimina" y almacena en una lista temporal que será una lista ordenada después del ciclo
+        for(int i=low, j=middle+1, k=0; (i <= middle) || (j <= high); k++){
+            if(i > middle){
+                tempArray[k] = array[j++];
+            }
+            else if (j > high){ 
+                tempArray[k] = array[i++];
+            }
+            else if(array[i] <= array[j]){
+                tempArray[k] = array[i++];
+            }else{
+                tempArray[k] = array[j++];
+            }
+        }
+        //aplicar cambios
+        int index=low;
+        for (Integer value : tempArray) {
+            array[index++] = value;
+        }
+    }
 }
